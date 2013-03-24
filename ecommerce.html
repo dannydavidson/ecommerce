@@ -1,0 +1,66 @@
+<head>
+  <title>ecommerce</title>
+</head>
+
+<body>
+  {{{loginButtons}}}
+  {{> chooser}}
+  {{> product_list}}
+  {{> controls}}
+</body>
+
+<template name="chooser">
+  <div class="chooser container-fluid">
+    {{#each products}}
+      {{> chooser_button}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="product_list">
+  <div class="product_list container">
+    {{#each products}}
+    <div class="row-fluid">
+      {{> product_stack}}
+    </div>
+    {{/each}}
+  </div>
+</template>
+
+<template name="product_stack">
+  <div class="product_stack span12 {{_id}}">
+    <img class="product_stack" src="{{img}}" width=400 height=400 />
+    <h1>{{name}}</h1>
+    <h2>{{price}}</h2>
+  </div>
+</template>
+
+<template name="chooser_button">
+  <div class="chooser_button pull-left">
+    <img src="{{img}}" width="70" height="70">
+    <p>{{name}}</p>
+  </div>
+</template>
+
+<template name="controls">
+  <div class="controls">
+    {{#if isWatcher}}
+    <div class="btn {{#if handRaised}}btn-danger{{else}}btn-warning{{/if}} req_ctrl_btn">
+      {{request_control_txt}}
+    </div>
+    {{/if}}
+    {{#if isSpeaker}}
+    {{#each requesting}}
+      <div class="btn requester">{{username}}</div>
+    {{/each}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="take_control_btn">
+  <div class="take_control_btn">
+    <div class="btn">
+      {{txt}}
+    </div>
+  </div>
+</template>

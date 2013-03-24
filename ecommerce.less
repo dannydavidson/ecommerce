@@ -1,0 +1,72 @@
+/* CSS declarations go here */
+
+
+@chooser_height: 110px;
+@controls_height: 40px;
+
+.disabler {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: @controls_height;
+    background: rgba(255, 255, 255, 0);
+    z-index: 9999;
+}
+
+.chooser {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: @controls_height;
+    height: @chooser_height;
+    background: green;
+}
+
+.chooser_button {
+    margin-top: 10px;
+    margin-right: 20px;
+
+    p {
+        width: 60px;
+        text-align: center;
+    }
+}
+
+.product_list {
+    width: 100%;
+    background: white;
+}
+
+.product_stack {
+    width: 100%;
+    .product_image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: @controls_height;
+    background: blue;
+}
+
+.take_control_btn {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, .2);
+
+    .btn {
+        margin-top: 220px;
+        padding: 30px;
+    }
+}
