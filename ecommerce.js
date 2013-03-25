@@ -82,10 +82,17 @@ if (Meteor.isClient) {
 
   Template.chooser.products = function () {
     var products = db.products.find({});
-    return products.map(function(product) {
-      product.name = _.str.truncate(product.name, 10);
-      return product;
-    });
+    var s = db.shopsessions.findOne({'default': true});
+    if (s) {
+      return products.map(function(product) {
+        if (product._id == s.product) {
+          product.selected = true;
+        }
+        product.name = _.str.truncate(product.name, 10);
+        return product;
+      });
+    }
+    return [];
   }
 
   Template.chooser.events({
@@ -100,7 +107,7 @@ if (Meteor.isClient) {
 
   Template.product_list.rendered = function () {
     $('.product_stack').css({
-      'height': $(window).outerHeight()
+      'height': $(window).height()
     });
   }
 
@@ -284,7 +291,7 @@ if (Meteor.isServer) {
         'price': '199',
       },
       {
-        'name': 'Wonderous Product',
+        'name': 'Great Product',
         'img': '/products/product4.jpg',
         'price': '199',
       }

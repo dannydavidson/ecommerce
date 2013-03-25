@@ -1,5 +1,13 @@
 /* CSS declarations go here */
 
+.rounded(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding; 
+  -webkit-background-clip: padding-box; 
+  background-clip: padding-box; 
+}
 
 @chooser_height: 110px;
 @controls_height: 40px;
@@ -40,6 +48,13 @@
     p {
         width: 60px;
         text-align: center;
+        padding: 5px;
+
+    }
+
+    .selected {
+        background: rgba(0, 0, 55, .3);
+        .rounded
     }
 }
 

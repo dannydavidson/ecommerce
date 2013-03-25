@@ -41,9 +41,9 @@
 </template>
 
 <template name="chooser_button">
-  <div class="chooser_button pull-left">
+  <div class="chooser_button pull-left" >
     <img src="{{img}}" width="70" height="70">
-    <p>{{name}}</p>
+    <p class="{{#if selected}}selected{{/if}}">{{name}}</p>
   </div>
 </template>
 
