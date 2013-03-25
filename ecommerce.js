@@ -17,7 +17,18 @@ if (Meteor.isClient) {
   }
 
   ecommerce.transitionToProduct = function (product) {
-    $.scrollTo($('.' + product), 1000, {'easing': 'easeOutElastic'});
+    var height = $(window).outerHeight();
+    var products = db.products.find({}).fetch();
+    var product_ids = _.map(products, function (p) {
+      return p._id;
+    });
+    var index = _.indexOf(product_ids, product);
+    console.log(product)
+    console.log(height);
+    console.log(index);
+    console.log(product_ids);
+    TweenLite.to($(window), .5, {scrollTo:{y: height * index}, ease: Back.easeOut.config(1)});
+    //$.scrollTo($('.' + product), 1000, {'easing': 'easeOutElastic'});
   }
 
   ecommerce.updateOpen = function (session) {
@@ -86,6 +97,12 @@ if (Meteor.isClient) {
 
   Template.product_list.products = function () {
     return db.products.find({}).fetch();
+  }
+
+  Template.product_list.rendered = function () {
+    $('.product_stack').css({
+      'height': $(window).outerHeight()
+    });
   }
 
   Template.controls.isWatcher = function () {
