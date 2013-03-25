@@ -14,13 +14,23 @@
     z-index: 9999;
 }
 
+.login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    z-index: 1000000;
+}
+
 .chooser {
     position: fixed;
     left: 0;
     right: 0;
     bottom: @controls_height;
     height: @chooser_height;
-    background: green;
+    background: white;
+    overflow: visible;
+    box-shadow: inset 0px 4px 3px rgba(50, 50, 50, 0.25);
 }
 
 .chooser_button {
@@ -53,7 +63,17 @@
     left: 0;
     right: 0;
     height: @controls_height;
-    background: blue;
+    background: green;
+
+    .btn {
+        height: @controls_height;
+        padding: 10px;
+
+    }
+
+    .req_ctrl_btn {
+        width: 100%;
+    }
 }
 
 .take_control_btn {
@@ -69,4 +89,53 @@
         margin-top: 220px;
         padding: 30px;
     }
+}
+
+
+.drop-shadow {
+    position: relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.drop-shadow:before,
+.drop-shadow:after {
+    content:"";
+    position:absolute;
+    z-index:-2;
+}
+
+.curved-vt-2:before {
+    right:0;
+}
+
+.curved:before {
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:50%;
+    -webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
+    -moz-box-shadow:0 0 15px rgba(0,0,0,0.6);
+    box-shadow:0 0 15px rgba(0,0,0,0.6);
+    // -moz-border-radius:10px / 100px;
+    // border-radius:10px / 100px;
+}
+
+.curved-hz-1:before {
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    // -moz-border-radius:100px / 10px;
+    // border-radius:100px / 10px;
+}
+
+.curved-hz-2:before {
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
 }

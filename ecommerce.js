@@ -27,8 +27,7 @@ if (Meteor.isClient) {
     console.log(height);
     console.log(index);
     console.log(product_ids);
-    TweenLite.to($(window), .5, {scrollTo:{y: height * index}, ease: Back.easeOut.config(1)});
-    //$.scrollTo($('.' + product), 1000, {'easing': 'easeOutElastic'});
+    TweenLite.to($(window), .5, {scrollTo:{y: height * index}, ease: Power4.easeOut});
   }
 
   ecommerce.updateOpen = function (session) {
@@ -282,11 +281,6 @@ if (Meteor.isServer) {
       {
         'name': 'Stellar Product',
         'img': '/products/product2.jpg',
-        'price': '199',
-      },
-      {
-        'name': 'Jaw-dropping Product',
-        'img': '/products/product3.jpg',
         'price': '199',
       },
       {

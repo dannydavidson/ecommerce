@@ -4,7 +4,9 @@
 </head>
 
 <body>
+  <div class="login">
   {{{loginButtons}}}
+  </div>
   {{> chooser}}
   {{> product_list}}
   {{> controls}}
@@ -12,9 +14,11 @@
 
 <template name="chooser">
   <div class="chooser container-fluid">
+    <div class="drop-shadow curved">
     {{#each products}}
       {{> chooser_button}}
     {{/each}}
+    </div>
   </div>
 </template>
 
@@ -52,7 +56,7 @@
     {{/if}}
     {{#if isSpeaker}}
     {{#each requesting}}
-      <div class="btn requester">{{username}}</div>
+      <div class="btn btn-primary requester">{{username}}</div>
     {{/each}}
     {{/if}}
   </div>
@@ -60,7 +64,7 @@
 
 <template name="take_control_btn">
   <div class="take_control_btn">
-    <div class="btn">
+    <div class="btn btn-success">
       {{txt}}
     </div>
   </div>
