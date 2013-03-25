@@ -92,7 +92,7 @@ if (Meteor.isClient) {
         return product;
       });
     }
-    return [];
+    return [true];
   }
 
   Template.chooser.events({
