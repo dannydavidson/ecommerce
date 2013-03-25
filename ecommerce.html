@@ -36,8 +36,16 @@
 <template name="product_stack">
   <div class="product_stack span12 {{_id}}">
     <img class="product_image" src="{{img}}" width=400 height=400 />
+    <div class="header">
     <h1>{{name}}</h1>
-    <h2>{{price}}</h2>
+    <h2>${{price}}</h2>
+    </div>
+    <div class="btn-group">
+       <button class="btn">Specs</button>
+       <button class="btn">History</button>
+       <button class="btn">Rating</button>
+      <button class="btn btn-success">Buy</button>
+    </div>
   </div>
 </template>
 
