@@ -111,6 +111,27 @@ if (Meteor.isClient) {
     });
   }
 
+  Template.product_stack.events({
+    'mousedown .specs': function (evt, template) {
+      console.log(this)
+    },
+    'mousedown .usage': function (evt, template) {
+      console.log(this)
+    },
+    'mousedown .reviews': function (evt, template) {
+      console.log(this)
+    },
+    'mouseup .specs': function (evt, template) {
+      console.log(this)
+    },
+    'mouseup .usage': function (evt, template) {
+      console.log(this)
+    },
+    'mouseup .reviews': function (evt, template) {
+      console.log(this)
+    },
+  });
+
   Template.controls.isWatcher = function () {
     var s = db.shopsessions.findOne({'default': true});
     if (s) {
