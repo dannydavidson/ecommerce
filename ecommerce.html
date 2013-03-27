@@ -1,6 +1,9 @@
 <head>
   <title>ecommerce</title>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+  />
 </head>
 
 <body>
@@ -13,7 +16,7 @@
 </body>
 
 <template name="chooser">
-  <div class="chooser container-fluid">
+  <div class="chooser grid-container">
     <div class="drop-shadow curved">
     {{#each products}}
       {{> chooser_button}}
@@ -23,7 +26,7 @@
 </template>
 
 <template name="product_list">
-  <div class="product_list container">
+  <div class="product_list grid-100">
     {{#each products}}
     <div class="row-fluid">
       {{> product_stack}}
@@ -34,23 +37,23 @@
 </template>
 
 <template name="product_stack">
-  <div class="product_stack span12 {{_id}}">
+  <div class="product_stack grid-100 {{_id}}">
     <img class="product_image" src="{{img}}" width=400 height=400 />
     <div class="header">
-    <h1>{{name}}</h1>
-    <h2>${{price}}</h2>
+      <h1>{{name}}</h1>
+      <h2>${{price}}</h2>
     </div>
-    <div class="btn-group">
-       <button class="btn specs">Specs</button>
-       <button class="btn usage">Usage</button>
-       <button class="btn reviews">Reviews</button>
-      <button class="btn btn-success">Buy</button>
+    <div class="grid-100">
+       <div class="btn specs mobile-grid-25 grid-25">Specs</div>
+       <div class="btn usage mobile-grid-25 grid-25">Usage</div>
+       <div class="btn reviews mobile-grid-25 grid-25">Reviews</div>
+       <div class="btn btn-success mobile-grid-25 grid-25">Buy</div>
     </div>
   </div>
 </template>
 
 <template name="chooser_button">
-  <div class="chooser_button pull-left" >
+  <div class="chooser_button mobile-grid-25 mobile-pull-x grid-25 pull-x" >
     <img src="{{img}}" width="70" height="70">
     <p class="{{#if selected}}selected{{/if}}">{{name}}</p>
   </div>
@@ -59,7 +62,7 @@
 <template name="controls">
   <div class="controls">
     {{#if isWatcher}}
-    <div class="btn {{#if handRaised}}btn-danger{{else}}btn-warning{{/if}} req_ctrl_btn">
+    <div class="btn curved-hz-1 drop-shadow {{#if handRaised}}btn-danger{{else}}btn-warning{{/if}} req_ctrl_btn">
       {{request_control_txt}}
     </div>
     {{/if}}

@@ -243,6 +243,7 @@ if (Meteor.isClient) {
     if (!u) {
       var user = getParameterByName('user');
       var user_record = Meteor.users.findOne({'username': user});
+      console.log(user_record)
       if (user_record) {
         Meteor.loginWithPassword(user_record.username, ecommerce.password);
       }
